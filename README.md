@@ -1,78 +1,142 @@
-💰 ControleFinanceiro
+💰 ControleFinanceiro | Sistema de Controle Financeiro
 
-Sistema web para gerenciamento de finanças pessoais, desenvolvido com ASP.NET Core MVC, Entity Framework Core e MySQL.
+Sistema web de controle financeiro pessoal desenvolvido em C# com ASP.NET Core MVC, com integração ao MySQL através do Entity Framework Core e uma interface moderna para gerenciamento de receitas, despesas, categorias e acompanhamento da vida financeira.
 
+O projeto foi desenvolvido com foco em organização, usabilidade, separação de responsabilidades e visualização clara dos dados, reunindo as principais operações financeiras em um único sistema.
 
+🎯 Visão Geral
 
-📌 Sobre o projeto
+O ControleFinanceiro permite registrar e acompanhar movimentações financeiras de forma simples e organizada.
 
-O ControleFinanceiro é uma aplicação web criada para facilitar o gerenciamento de finanças pessoais.
+A aplicação centraliza informações de receitas e despesas e transforma esses dados em indicadores e gráficos para facilitar a análise financeira.
 
-O sistema permite cadastrar receitas e despesas, organizar movimentações por categorias, consultar o histórico financeiro, aplicar filtros e acompanhar os principais indicadores através de um dashboard.
+✨ Destaques
 
-O projeto foi desenvolvido utilizando ASP.NET Core MVC, com separação entre Controllers, Models, Services, ViewModels e Views.
+Dashboard Financeiro: visão geral das principais informações financeiras
 
-🎯 Objetivo
+Controle de Transações: cadastro, edição, consulta e exclusão de movimentações
 
-Oferecer uma maneira simples e visual de acompanhar:
+Categorias: organização das transações por categorias
 
-💵 Receitas
+Filtros: pesquisa por descrição, tipo, categoria e período
 
-💸 Despesas
+Gráficos: visualização de receitas, despesas e distribuição por categoria
 
-💰 Saldo
+Saldo Automático: cálculo baseado nas movimentações cadastradas
 
-🧾 Transações
+Tema Claro/Escuro: alternância de aparência da aplicação
 
-🏷️ Categorias
+Interface Responsiva: adaptação para diferentes tamanhos de tela
 
-📊 Distribuição dos gastos
+Validações: regras para manter os dados consistentes
 
-📈 Evolução financeira
+Banco de Dados: persistência utilizando MySQL e Entity Framework Core
 
-✨ Funcionalidades
+Arquitetura MVC: organização entre Models, Views e Controllers
+
+🛠️ Stack Tecnológico
+
+Backend
+
+C# — Linguagem principal
+
+ASP.NET Core MVC — Framework para desenvolvimento web
+
+Entity Framework Core — ORM para acesso ao banco de dados
+
+LINQ — Consultas e manipulação de dados
+
+Dependency Injection — Injeção de dependências
+
+Async/Await — Operações assíncronas
+
+Data Annotations — Validação dos modelos
+
+Banco de Dados
+
+MySQL — Banco de dados relacional
+
+Pomelo.EntityFrameworkCore.MySql — Provedor MySQL para Entity Framework Core
+
+EF Core Migrations — Controle da estrutura do banco
+
+Frontend
+
+HTML5
+
+CSS3
+
+JavaScript
+
+Razor Views
+
+Bootstrap
+
+Font Awesome
+
+Chart.js
+
+Ferramentas
+
+Visual Studio / Visual Studio Code
+
+Git
+
+GitHub
+
+.NET CLI
+
+Entity Framework CLI
+
+🚀 Funcionalidades
 
 📊 Dashboard
 
-O dashboard apresenta um resumo da situação financeira do usuário.
+O dashboard é o centro de acompanhamento financeiro da aplicação.
 
 Indicadores
 
-💵 Total de receitas
+💵 Total de Receitas
 
-💸 Total de despesas
+💸 Total de Despesas
 
-💰 Saldo financeiro
+💰 Saldo
 
-🧾 Quantidade de transações
+🧾 Quantidade de Transações
 
-🕐 Últimas transações
+🕐 Transações Recentes
 
-📊 Comparação entre receitas e despesas
+Visualizações
 
-🍩 Despesas por categoria
+📊 Comparativo entre receitas e despesas
 
-📅 Evolução mensal
+🍩 Distribuição de despesas por categoria
 
-Os dados são calculados a partir das movimentações cadastradas no banco de dados.
+📅 Evolução financeira mensal
 
-💵 Receitas
+📈 Histórico das movimentações
 
-É possível cadastrar entradas financeiras, como:
+Os indicadores são calculados a partir dos dados armazenados no banco de dados.
+
+💵 Controle de Receitas
+
+Permite registrar diferentes tipos de entradas financeiras.
+
+Exemplos:
 
 Salário
 
-Freelances
-
-Investimentos
+Freelance
 
 Vendas
+
+Investimentos
 
 Rendimentos
 
 Outros recebimentos
 
-Cada movimentação pode possuir:
+Cada movimentação pode conter:
 
 Descrição
 
@@ -80,13 +144,15 @@ Valor
 
 Data
 
-Categoria
-
 Tipo
 
-💸 Despesas
+Categoria
 
-O sistema também permite registrar gastos financeiros, como:
+💸 Controle de Despesas
+
+Permite registrar e organizar os gastos realizados.
+
+Exemplos:
 
 Alimentação
 
@@ -106,9 +172,9 @@ Contas
 
 Outros gastos
 
-As despesas são utilizadas automaticamente nos cálculos do dashboard e relatórios.
+As despesas cadastradas são utilizadas automaticamente nos cálculos do dashboard e nas visualizações financeiras.
 
-🧾 Transações
+🧾 Gerenciamento de Transações
 
 O módulo de transações permite administrar todas as movimentações financeiras.
 
@@ -116,31 +182,38 @@ Operações disponíveis
 
 ➕ Criar transação
 
-👁️ Visualizar transações
+📋 Listar transações
+
+🔎 Consultar movimentações
 
 ✏️ Editar transação
 
 🗑️ Excluir transação
 
-🔎 Pesquisar transações
+🏷️ Associar categoria
 
-🏷️ Filtrar por categoria
+💵 Definir tipo da movimentação
 
-💵 Filtrar por tipo
+📅 Definir data e valor
 
-📅 Filtrar por período
+O módulo trabalha com operações completas de CRUD.
 
-🔎 Filtros
+C → Create  → Criar
+R → Read    → Consultar
+U → Update  → Atualizar
+D → Delete  → Excluir
 
-A tela de transações permite combinar diferentes filtros.
+🔎 Sistema de Filtros
 
-Descrição
+A tela de transações possui filtros para facilitar a localização de movimentações.
 
-Pesquisa uma movimentação através da descrição.
+🔤 Descrição
 
-Tipo
+Pesquisa transações através da descrição cadastrada.
 
-Permite visualizar:
+💵 Tipo
+
+Permite filtrar por:
 
 Todas
 
@@ -148,11 +221,11 @@ Receitas
 
 Despesas
 
-Categoria
+🏷️ Categoria
 
-Exibe somente transações pertencentes à categoria selecionada.
+Permite visualizar somente as transações pertencentes a uma categoria específica.
 
-Período
+📅 Período
 
 Permite informar:
 
@@ -160,11 +233,11 @@ Data inicial
 
 Data final
 
-Os filtros podem ser combinados para encontrar movimentações específicas.
+Os filtros podem ser combinados para realizar consultas mais específicas.
 
-🏷️ Categorias
+🏷️ Gerenciamento de Categorias
 
-O sistema possui gerenciamento completo de categorias.
+O sistema possui um módulo específico para criação e organização das categorias.
 
 Funcionalidades
 
@@ -176,125 +249,137 @@ Funcionalidades
 
 🗑️ Excluir categoria
 
-🚫 Evitar categorias duplicadas
+🚫 Validação de categorias duplicadas
 
-🔒 Impedir exclusão de categoria utilizada
+🔒 Proteção de categorias utilizadas
 
-Uma categoria relacionada a transações não pode ser excluída, preservando a integridade dos dados.
+Uma categoria que possui transações associadas não deve ser removida, preservando a integridade dos dados relacionados.
 
-📈 Gráficos
+📈 Gráficos e Visualização de Dados
 
-O projeto utiliza Chart.js para apresentar os dados financeiros de forma visual.
+O sistema utiliza Chart.js para transformar os dados financeiros em informações visuais.
 
 📊 Receitas x Despesas
 
-Compara receitas e despesas ao longo dos meses.
+Permite comparar a evolução das receitas e despesas ao longo dos meses.
 
-🍩 Despesas por categoria
+🍩 Despesas por Categoria
 
-Mostra como as despesas estão distribuídas entre as categorias.
+Apresenta a distribuição dos gastos entre as categorias cadastradas.
 
-📅 Histórico mensal
+📅 Histórico Mensal
 
-O dashboard apresenta dados dos últimos meses para facilitar a identificação de tendências.
+Permite acompanhar a movimentação financeira ao longo dos últimos meses.
 
-💰 Cálculo do saldo
+Essas visualizações facilitam a identificação de padrões de gastos e evolução financeira.
 
-O saldo é calculado automaticamente:
+💰 Cálculo Automático do Saldo
+
+O saldo é calculado automaticamente a partir das movimentações.
 
 Saldo = Total de Receitas - Total de Despesas
 
-Exemplo:
+Exemplo
 
-Receitas: R$ 3.000,00
-Despesas: R$ 2.000,00
-Saldo:    R$ 1.000,00
+Receitas:  R$ 3.000,00
+Despesas:  R$ 2.000,00
+----------------------
+Saldo:     R$ 1.000,00
+
+O resultado é atualizado conforme as transações são cadastradas, editadas ou excluídas.
+
+🌙 Tema Claro e Escuro
+
+A aplicação possui suporte para diferentes temas visuais.
+
+☀️ Tema Claro
+
+Interface com aparência clara para utilização durante o dia.
+
+🌙 Tema Escuro
+
+Interface com aparência escura para uma experiência visual mais confortável em ambientes com pouca iluminação.
+
+A preferência do usuário é armazenada no navegador utilizando:
+
+localStorage
 
 📑 Relatórios
 
-O projeto possui uma área dedicada aos relatórios financeiros.
+O projeto possui uma área dedicada à visualização de informações financeiras.
 
-A interface apresenta recursos para:
+Entre os recursos apresentados estão:
 
 📊 Comparação de receitas e despesas
 
-🍩 Distribuição das despesas por categoria
+🍩 Distribuição de despesas por categoria
 
-📄 Exportação dos dados
+📅 Análise por período
 
-Nota: os botões de exportação PDF e Excel estão presentes na interface, mas a geração dos arquivos pode ser implementada como uma próxima evolução do projeto.
+📄 Interface preparada para exportação
+
+Nota: os recursos de exportação para PDF e Excel estão presentes na interface como parte da evolução planejada do projeto.
 
 ⚙️ Configurações
 
-A aplicação possui uma área de configurações.
+A aplicação possui uma área de configurações para centralizar preferências do sistema.
 
-🎨 Aparência
+Recursos
 
-Suporte para:
+🎨 Configuração de aparência
 
 ☀️ Tema claro
 
 🌙 Tema escuro
 
-A preferência de tema é armazenada no navegador utilizando localStorage.
+🔔 Área de notificações
 
-🔔 Notificações
+🛠️ Informações do sistema
 
-A interface possui configuração para notificações, preparada para futuras funcionalidades de alertas.
-
-🛠️ Informações
-
-A página apresenta informações relacionadas à versão e tecnologias utilizadas no sistema.
-
-🎨 Interface
-
-A aplicação possui uma interface moderna e responsiva, com:
-
-Dashboard
-
-Cards de indicadores
-
-Tabelas
-
-Formulários
-
-Botões de ação
-
-Alertas
-
-Gráficos
-
-Ícones
-
-Tema claro/escuro
-
-Layout responsivo
+A estrutura permite que novas configurações sejam adicionadas futuramente.
 
 🏗️ Arquitetura
 
-O projeto utiliza o padrão MVC (Model-View-Controller).
+O projeto utiliza o padrão arquitetural MVC (Model-View-Controller).
 
-Controller
-    ↓
-Service
-    ↓
-Model / ViewModel
-    ↓
-View
+                   ┌──────────────┐
+                   │     View     │
+                   └──────┬───────┘
+                          │
+                          ▼
+                   ┌──────────────┐
+                   │  Controller  │
+                   └──────┬───────┘
+                          │
+                          ▼
+                   ┌──────────────┐
+                   │   Service    │
+                   └──────┬───────┘
+                          │
+                          ▼
+                   ┌──────────────┐
+                   │     Data     │
+                   └──────┬───────┘
+                          │
+                          ▼
+                   ┌──────────────┐
+                   │    MySQL     │
+                   └──────────────┘
 
 Models
 
-Representam os dados da aplicação.
+Representam as entidades do sistema.
 
-Principais entidades:
+Principais modelos:
 
-Transacao
 Categoria
+Transacao
 TipoTransacao
+ErrorViewModel
 
 Controllers
 
-Responsáveis pelo fluxo das requisições.
+Responsáveis por receber as requisições e controlar o fluxo da aplicação.
 
 HomeController
 TransacoesController
@@ -304,22 +389,20 @@ ConfiguracoesController
 
 Services
 
-A camada de serviços concentra regras específicas.
-
-Principal serviço:
+Concentram regras e processamento específicos da aplicação.
 
 DashboardService
 
-Responsável por preparar os dados utilizados no dashboard.
+O serviço é utilizado para preparar os dados apresentados no dashboard.
 
 ViewModels
 
-Principais ViewModels:
+Responsáveis por transportar dados específicos entre Controllers e Views.
 
 DashboardViewModel
 TransacaoFiltroViewModel
 
-🗂️ Estrutura do projeto
+🗂️ Estrutura do Projeto
 
 ControleFinanceiro/
 │
@@ -368,27 +451,33 @@ ControleFinanceiro/
 ├── appsettings.json
 └── ControleFinanceiro.csproj
 
-🗄️ Banco de dados
+🗄️ Banco de Dados
 
-O sistema utiliza MySQL e Entity Framework Core.
+O projeto utiliza MySQL para armazenamento persistente dos dados.
 
-O contexto principal é:
+A comunicação com o banco é feita através do Entity Framework Core.
+
+Contexto
 
 AppDbContext
 
-Relacionamento
-
-Uma categoria pode possuir várias transações:
+Principais entidades
 
 Categoria
     │
-    └── 1:N ──> Transacao
+    └──────── 1:N ────────> Transacao
 
-A transação utiliza CategoriaId como chave estrangeira.
+Uma categoria pode estar associada a várias transações.
+
+A transação utiliza uma referência para a categoria através de:
+
+CategoriaId
+
+Essa estrutura mantém o relacionamento entre as entidades e ajuda a preservar a integridade dos dados.
 
 🛡️ Validações
 
-O sistema utiliza validações através de Data Annotations e regras da aplicação.
+O sistema possui validações para evitar dados inválidos.
 
 Transações
 
@@ -412,13 +501,15 @@ Nome obrigatório
 
 Limite de caracteres
 
-Controle de duplicidade
+Validação de duplicidade
 
-Proteção contra exclusão quando existem transações relacionadas
+Proteção contra exclusão quando existem relacionamentos
 
 🔐 Segurança
 
-O projeto utiliza recursos do ASP.NET Core, incluindo:
+A aplicação utiliza recursos de segurança disponíveis no ASP.NET Core.
+
+Entre eles:
 
 HTTPS
 
@@ -430,39 +521,115 @@ Anti-forgery tokens
 
 Validação de ModelState
 
-Validação de entidades relacionadas
+Validação de relacionamentos
 
 Controle de concorrência
 
-Os formulários utilizam proteção contra requisições CSRF através de:
+Os formulários protegidos utilizam:
 
 [ValidateAntiForgeryToken]
 
-🧰 Tecnologias utilizadas
+📱 Interface Responsiva
+
+A interface foi estruturada para funcionar em diferentes tamanhos de tela.
+
+O projeto possui estilos específicos para:
+
+wwwroot/css/
+
+├── base.css
+├── components.css
+├── dashboard.css
+├── forms.css
+├── layout.css
+├── responsive.css
+└── site.css
+
+A aplicação busca manter uma experiência consistente em:
+
+📱 Smartphones
+
+📱 Tablets
+
+💻 Notebooks
+
+🖥️ Desktops
+
+⚡ JavaScript
+
+Os scripts frontend são organizados por responsabilidade.
+
+wwwroot/js/
+
+├── charts.js
+├── dashboard.js
+├── site.js
+├── theme.js
+└── transacoes.js
+
+charts.js
+
+Responsável pelos gráficos financeiros.
+
+dashboard.js
+
+Comportamentos relacionados ao dashboard.
+
+theme.js
+
+Gerenciamento do tema claro/escuro.
+
+transacoes.js
+
+Comportamentos da área de transações.
+
+site.js
+
+Funcionalidades gerais da aplicação.
+
+🧠 Conceitos Aplicados
+
+O projeto demonstra a aplicação prática de diversos conceitos de desenvolvimento.
 
 Backend
 
-C#
+Programação Orientada a Objetos
 
-ASP.NET Core MVC
+MVC
 
-.NET
+CRUD
 
-Entity Framework Core
+Controllers
 
-LINQ
+Services
+
+Interfaces
+
+ViewModels
 
 Dependency Injection
 
+LINQ
+
 Async/Await
 
-Banco de dados
+Data Annotations
 
-MySQL
+Banco de Dados
 
-Pomelo.EntityFrameworkCore.MySql
+Modelagem relacional
 
-Entity Framework Core Migrations
+Chaves primárias
+
+Chaves estrangeiras
+
+Relacionamentos 1
+
+Constraints
+
+Migrations
+
+Integridade referencial
 
 Frontend
 
@@ -476,55 +643,38 @@ Razor
 
 Bootstrap
 
-Font Awesome
+Responsividade
 
-Chart.js
+Manipulação de dados
 
-Bibliotecas
+Gráficos interativos
 
-Bootstrap
+📋 Como Rodar Localmente
 
-jQuery
+Pré-requisitos
 
-jQuery Validation
-
-jQuery Validation Unobtrusive
-
-📦 Principais dependências
-
-Microsoft.EntityFrameworkCore
-Microsoft.EntityFrameworkCore.Design
-Microsoft.EntityFrameworkCore.Tools
-Pomelo.EntityFrameworkCore.MySql
-
-As dependências estão definidas no arquivo:
-
-ControleFinanceiro.csproj
-
-🚀 Como executar
-
-1. Pré-requisitos
-
-Instale:
+Antes de executar o projeto, certifique-se de possuir:
 
 .NET SDK
 
 MySQL
 
-Visual Studio, Visual Studio Code ou Rider
-
 Git
 
-2. Clonar o projeto
+Visual Studio, Visual Studio Code ou Rider
+
+1. Clone o repositório
 
 git clone https://github.com/gmachhh/ControleFinanceiroV2.git
 cd ControleFinanceiroV2
 
-3. Configurar o banco
+2. Configure o banco de dados
 
-Configure a connection string em:
+Abra:
 
 ControleFinanceiro/appsettings.json
+
+Configure a sua connection string.
 
 Exemplo:
 
@@ -534,149 +684,153 @@ Exemplo:
   }
 }
 
-⚠️ Nunca publique senhas reais ou credenciais do banco no GitHub.
+⚠️ Não publique senhas ou credenciais reais no repositório.
 
-4. Restaurar dependências
+3. Restaure as dependências
 
 dotnet restore
 
-5. Aplicar migrations
+4. Configure o Entity Framework
 
-Caso ainda não possua o Entity Framework CLI:
+Caso ainda não possua o EF CLI instalado:
 
 dotnet tool install --global dotnet-ef
 
-Depois:
+Depois execute as migrations:
 
 dotnet ef database update
 
-6. Compilar
+5. Compile o projeto
 
 dotnet build
 
-7. Executar
+6. Execute
 
 dotnet run
 
-O terminal mostrará o endereço local da aplicação.
+Depois acesse o endereço informado pelo terminal.
 
-🔄 Fluxo de utilização
+🔨 Comandos Disponíveis
 
-Abrir o sistema
-      ↓
-Criar categorias
-      ↓
-Cadastrar receitas e despesas
-      ↓
-Consultar transações
-      ↓
-Aplicar filtros
-      ↓
-Acessar Dashboard
-      ↓
-Analisar gráficos
-      ↓
-Consultar Relatórios
-      ↓
-Configurar aparência
+# Restaurar dependências
+dotnet restore
 
-🧠 Conceitos aplicados
+# Compilar o projeto
+dotnet build
 
-O projeto utiliza conceitos importantes de desenvolvimento de software:
+# Executar em desenvolvimento
+dotnet run
 
-Programação
+# Aplicar migrations
+dotnet ef database update
 
-Programação Orientada a Objetos
+# Criar uma nova migration
+dotnet ef migrations add NomeDaMigration
 
-MVC
+🔄 Fluxo de Utilização
 
-CRUD
+           Início
+             │
+             ▼
+       Criar Categorias
+             │
+             ▼
+    Cadastrar Transações
+             │
+       ┌─────┴─────┐
+       ▼           ▼
+   Receitas     Despesas
+       │           │
+       └─────┬─────┘
+             ▼
+          Dashboard
+             │
+       ┌─────┼─────┐
+       ▼     ▼     ▼
+    Saldo  Gráficos  Filtros
+             │
+             ▼
+         Relatórios
 
-Interfaces
+📌 Status do Projeto
 
-Services
+🚧 Em desenvolvimento
 
-ViewModels
+✅ Atualmente disponível
 
-Dependency Injection
+Dashboard financeiro
 
-LINQ
+Cadastro de receitas
 
-Async/Await
+Cadastro de despesas
 
-Banco de dados
+CRUD de transações
 
-Relacionamentos
+CRUD de categorias
 
-Chaves primárias
+Filtros de transações
 
-Chaves estrangeiras
+Cálculo automático de saldo
 
-Constraints
+Gráficos financeiros
+
+Histórico mensal
+
+Tema claro/escuro
+
+Interface responsiva
+
+Validações
+
+MySQL
+
+Entity Framework Core
 
 Migrations
 
-Integridade referencial
+Área de configurações
 
-Frontend
+Área de relatórios
 
-HTML
+🚧 Em evolução
 
-CSS
+Exportação de relatórios em PDF
 
-JavaScript
+Exportação de relatórios em Excel
 
-Razor
+Sistema completo de notificações
 
-Bootstrap
+Autenticação e usuários
 
-Responsividade
+Contas bancárias
 
-Visualização de dados
+Cartões de crédito
 
-📱 Responsividade
+Metas financeiras
 
-O frontend possui arquivos específicos para organização da interface:
+Orçamento mensal
 
-wwwroot/css/
-├── base.css
-├── components.css
-├── dashboard.css
-├── forms.css
-├── layout.css
-├── responsive.css
-└── site.css
+🔮 Próximas Evoluções
 
-O JavaScript também é separado por responsabilidade:
+O projeto possui espaço para crescer e receber novas funcionalidades.
 
-wwwroot/js/
-├── charts.js
-├── dashboard.js
-├── site.js
-├── theme.js
-└── transacoes.js
-
-🔮 Próximas melhorias
-
-Algumas funcionalidades que podem ser adicionadas futuramente:
-
-🔐 Usuários
-
-Login
+👤 Usuários
 
 Cadastro
+
+Login
 
 Logout
 
 Recuperação de senha
 
-Dados separados por usuário
+Dados financeiros individuais
 
-💳 Contas e cartões
+💳 Contas e Cartões
 
 Contas bancárias
 
-Cartões
+Cartões de crédito
 
 Limites
 
@@ -684,83 +838,43 @@ Faturas
 
 Parcelamentos
 
-📅 Planejamento
+🎯 Planejamento Financeiro
 
-Metas financeiras
+Metas
 
 Orçamento mensal
 
 Limites por categoria
 
-Planejamento de gastos
+Acompanhamento de objetivos
 
 🔔 Notificações
 
 Alertas de vencimento
 
+Alertas de gastos
+
 Avisos de orçamento
 
-Alertas de gastos elevados
+Lembretes financeiros
 
-📑 Relatórios
-
-Exportação PDF
-
-Exportação Excel
-
-Relatórios personalizados
-
-Filtros avançados
-
-Relatórios anuais
-
-📊 Dashboard avançado
+📊 Dashboard Avançado
 
 Comparação entre períodos
 
-Evolução do patrimônio
-
-Percentuais de gastos
-
 Novos indicadores
 
+Evolução patrimonial
+
+Análises personalizadas
+
 Previsões financeiras
-
-📌 Status
-
-🚧 Em desenvolvimento
-
-O projeto já possui uma base funcional para gerenciamento financeiro, incluindo:
-
-CRUD de transações
-
-CRUD de categorias
-
-Filtros
-
-Dashboard
-
-Indicadores
-
-Gráficos
-
-Relatórios
-
-Configurações
-
-Tema claro/escuro
-
-Banco de dados MySQL
-
-Entity Framework Core
-
-Interface responsiva
 
 👨‍💻 Desenvolvedor
 
 Desenvolvido por gmachhh.
 
-Projeto desenvolvido com foco em aprendizado, prática de desenvolvimento web e construção de uma aplicação real de controle financeiro.
+Projeto criado com foco em aprendizado, prática de desenvolvimento de software e construção de uma aplicação web real, aplicando conceitos de backend, frontend, banco de dados, arquitetura MVC e visualização de informações.
 
 📄 Licença
 
@@ -768,45 +882,24 @@ Este projeto está licenciado sob a Apache License 2.0.
 
 Consulte o arquivo LICENSE.txt para mais informações.
 
-⭐ Contribuição
+🙏 Agradecimentos
 
-Contribuições são bem-vindas.
+Projeto desenvolvido com foco em:
 
-# Criar uma branch
-git checkout -b feature/nova-funcionalidade
+🧠 Aprendizado contínuo
 
-# Fazer alterações
+🏗️ Boas práticas de arquitetura
 
-# Commit
-git commit -m "Adiciona nova funcionalidade"
+💻 Desenvolvimento web
 
-# Enviar para o GitHub
-git push origin feature/nova-funcionalidade
+🗄️ Banco de dados
 
-Depois, abra um Pull Request.
+🎨 Experiência do usuário
 
-💡 Resumo
+📊 Visualização de dados
 
-O ControleFinanceiro combina:
+🚀 Evolução profissional
 
-💰 Controle financeiro
-        +
-🧾 Transações
-        +
-🏷️ Categorias
-        +
-📊 Dashboard
-        +
-📈 Gráficos
-        +
-🔎 Filtros
-        +
-📑 Relatórios
-        +
-🎨 Tema claro/escuro
-        +
-🗄️ MySQL
-        +
-⚙️ ASP.NET Core MVC
+💡 ControleFinanceiro
 
-Organize suas finanças. Entenda seus gastos. Tome decisões melhores.
+Organize suas finanças. Visualize seus gastos. Tenha mais controle sobre seu dinheiro.
