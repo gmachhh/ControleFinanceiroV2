@@ -1,0 +1,43 @@
+﻿@model ControleFinanceiro.Models.Categoria
+
+@{
+    ViewData["Title"] = "Excluir Categoria";
+}
+
+<div class="form-card delete-card">
+
+    <div class="delete-icon">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+    </div>
+
+    <h2>Excluir categoria?</h2>
+
+    <p>
+        Tem certeza que deseja excluir:
+        <strong>@Model.Nome</strong>?
+    </p>
+
+    <form asp-action="Delete">
+
+        <input type="hidden"
+               asp-for="Id" />
+
+        <div class="form-actions">
+
+            <a asp-action="Index"
+               class="btn btn-secondary">
+                Cancelar
+            </a>
+
+            <button type="submit"
+                    class="btn btn-danger">
+
+                Excluir
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>

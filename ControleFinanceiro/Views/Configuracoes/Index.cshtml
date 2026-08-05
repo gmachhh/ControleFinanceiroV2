@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "Configurações";
+}
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Configurações</h1>
+
+        <p>
+            Personalize o sistema de acordo com suas preferências.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="settings-grid">
+
+
+    <!-- APARÊNCIA -->
+
+    <div class="content-card">
+
+        <div class="settings-icon">
+
+            <i class="fa-solid fa-palette"></i>
+
+        </div>
+
+        <h3>Aparência</h3>
+
+        <p>
+            Escolha como o sistema será exibido.
+        </p>
+
+        <button id="settingsThemeButton"
+                class="btn btn-outline-primary">
+
+            <i class="fa-solid fa-moon"></i>
+
+            Alternar tema
+
+        </button>
+
+    </div>
+
+
+    <!-- NOTIFICAÇÕES -->
+
+    <div class="content-card">
+
+        <div class="settings-icon">
+
+            <i class="fa-solid fa-bell"></i>
+
+        </div>
+
+        <h3>Notificações</h3>
+
+        <p>
+            Gerencie as notificações do sistema.
+        </p>
+
+        <div class="form-check form-switch">
+
+            <input class="form-check-input"
+                   type="checkbox"
+                   id="notifications">
+
+            <label class="form-check-label"
+                   for="notifications">
+
+                Ativar notificações
+
+            </label>
+
+        </div>
+
+    </div>
+
+
+    <!-- SISTEMA -->
+
+    <div class="content-card">
+
+        <div class="settings-icon">
+
+            <i class="fa-solid fa-sliders"></i>
+
+        </div>
+
+        <h3>Sistema</h3>
+
+        <p>
+            Informações sobre o sistema.
+        </p>
+
+        <div class="settings-info">
+
+            <span>Versão</span>
+
+            <strong>2.0.0</strong>
+
+        </div>
+
+        <div class="settings-info">
+
+            <span>Framework</span>
+
+            <strong>ASP.NET Core</strong>
+
+        </div>
+
+        <div class="settings-info">
+
+            <span>Banco de dados</span>
+
+            <strong>MySQL</strong>
+
+        </div>
+
+    </div>
+
+</div>

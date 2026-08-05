@@ -1,0 +1,101 @@
+﻿.app-layout {
+
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+
+    width: 260px;
+    background: var(--sidebar);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 30px;
+}
+
+.sidebar-logo {
+
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+    .sidebar-logo i {
+
+        color: #38bdf8;
+    }
+
+.sidebar-menu {
+    display: flex;
+
+    flex-direction: column;
+    gap: 12px;
+}
+
+    .sidebar-menu a {
+
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: #cbd5e1;
+        padding: 15px;
+        border-radius: 12px;
+        transition: .3s;
+    }
+
+        .sidebar-menu a i {
+
+            width: 24px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .sidebar-menu a::before {
+
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 0;
+            background: #2563eb;
+            transition: .3s;
+        }
+
+        .sidebar-menu a:hover::before {
+
+            width: 5px;
+        }
+
+        .sidebar-menu a:hover {
+
+            background: var(--sidebar-hover);
+            color: white;
+            transform: translateX(6px);
+        }
+
+.main-content {
+
+    margin-left: 260px;
+    flex: 1;
+    padding: 35px;
+}
+
+.topbar {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.topbar-actions {
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}

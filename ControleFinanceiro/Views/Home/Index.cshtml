@@ -1,0 +1,327 @@
+﻿@model ControleFinanceiro.ViewModels.DashboardViewModel
+@using ControleFinanceiro.Models
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="dashboard-header">
+
+    <div>
+        <h1>Dashboard</h1>
+
+        <p>
+            Visão geral das suas finanças.
+        </p>
+    </div>
+
+    <!--a asp-controller="Transacoes" 
+       asp-action="Create"
+       class="btn btn-primary">
+
+        <i class="fa-solid fa-plus"></i>
+
+        Nova transação
+
+    </a>-->
+
+</div>
+
+<!-- CARDS -->
+
+<div class="dashboard-cards">
+
+    <div class="dashboard-card fade-up">
+
+        <div class="card-icon income">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+        </div>
+
+        <div>
+
+            <span class="card-label">
+                Receitas
+            </span>
+
+            <h2>
+                @Model.TotalReceitas.ToString("C")
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="dashboard-card fade-up">
+
+        <div class="card-icon expense">
+            <i class="fa-solid fa-arrow-trend-down"></i>
+        </div>
+
+        <div>
+
+            <span class="card-label">
+                Despesas
+            </span>
+
+            <h2>
+                @Model.TotalDespesas.ToString("C")
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="dashboard-card fade-up">
+
+        <div class="card-icon balance">
+            <i class="fa-solid fa-wallet"></i>
+        </div>
+
+        <div>
+
+            <span class="card-label">
+                Saldo
+            </span>
+
+            <h2>
+                @Model.Saldo.ToString("C")
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="dashboard-card fade-up">
+
+        <div class="card-icon transactions">
+            <i class="fa-solid fa-receipt"></i>
+        </div>
+
+        <div>
+
+            <span class="card-label">
+                Transações
+            </span>
+
+            <h2>
+                @Model.TotalTransacoes
+            </h2>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CONTEÚDO -->
+
+<div class="dashboard-grid">
+
+    <!-- ÚLTIMAS TRANSAÇÕES -->
+
+    <div class="content-card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h3>
+                    Últimas transações
+                </h3>
+
+                <p>
+                    Movimentações recentes
+                </p>
+
+            </div>
+
+            <a asp-controller="Transacoes"
+               asp-action="Index"
+               class="btn btn-sm btn-outline-primary">
+
+                Ver todas
+
+            </a>
+
+        </div>
+
+        <div class="dashboard-grid">
+
+            <div class="content-card">
+
+                <h3>Receitas x Despesas</h3>
+
+                <canvas id="financeChart"></canvas>
+
+            </div>
+
+            <div class="content-card">
+
+                <h3>Despesas por Categoria</h3>
+
+                <canvas id="categoryChart"></canvas>
+
+            </div>
+
+        </div>
+
+
+        @if (Model.UltimasTransacoes.Any())
+        {
+            <div class="transaction-list">
+
+                @foreach (var transacao in Model.UltimasTransacoes)
+                {
+                    <div class="transaction-item">
+
+                        <div class="transaction-icon @(transacao.Tipo == TipoTransacao.Receita ? "income" : "expense")">
+
+                            @if (transacao.Tipo == TipoTransacao.Receita)
+                            {
+                                <i class="fa-solid fa-arrow-down"></i>
+                            }
+                            else
+                            {
+                                <i class="fa-solid fa-arrow-up"></i>
+                            }
+
+                        </div>
+
+                        <div class="transaction-info">
+
+                            <strong>
+                                @transacao.Descricao
+                            </strong>
+
+                            <span>
+                                @(transacao.Categoria?.Nome ?? "Sem categoria")
+                            </span>
+
+                        </div>
+
+                        <div class="transaction-value @(transacao.Tipo == TipoTransacao.Receita ? "income-text" : "expense-text")">
+
+                            @(transacao.Tipo == TipoTransacao.Receita ? "+" : "-")
+
+                            @transacao.Valor.ToString("C")
+
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+        }
+        else
+        {
+            <div class="empty-state">
+
+                <i class="fa-solid fa-wallet"></i>
+
+                <h4>
+                    Nenhuma transação
+                </h4>
+
+                <p>
+                    Cadastre sua primeira transação.
+                </p>
+
+                <a asp-controller="Transacoes"
+                   asp-action="Create"
+                   class="btn btn-primary">
+
+                    Nova transação
+
+                </a>
+
+            </div>
+        }
+
+    </div>
+
+    <!-- DESPESAS POR CATEGORIA -->
+
+    <div class="content-card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h3>
+                    Despesas por categoria
+                </h3>
+
+                <p>
+                    Onde seu dinheiro está indo
+                </p>
+
+            </div>
+
+        </div>
+
+        @if (Model.GastosPorCategoria.Any())
+        {
+            <div class="category-list">
+
+                @foreach (var categoria in Model.GastosPorCategoria)
+                {
+                    <div class="category-item">
+
+                        <div class="category-info">
+
+                            <span>
+                                @categoria.Key
+                            </span>
+
+                            <strong>
+                                @categoria.Value.ToString("C")
+                            </strong>
+
+                        </div>
+
+                    </div>
+                }
+
+            </div>
+        }
+        else
+        {
+            <div class="empty-state">
+
+                <i class="fa-solid fa-chart-pie"></i>
+
+                <p>
+                    Ainda não existem despesas.
+                </p>
+
+            </div>
+        }
+
+    </div>
+
+</div>
+
+@section Scripts{
+
+    <script>
+
+        const categorias =
+        @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Categorias));
+
+        const valores =
+        @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ValoresCategorias));
+
+        const meses =
+        @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Meses));
+
+        const receitas =
+        @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ReceitasMensais));
+
+        const despesas =
+        @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.DespesasMensais));
+
+    </script>
+
+    <script src="~/js/charts.js"></script>
+
+}

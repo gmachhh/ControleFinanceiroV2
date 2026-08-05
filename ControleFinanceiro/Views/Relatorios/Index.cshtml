@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "Relatórios";
+}
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Relatórios</h1>
+
+        <p>
+            Analise suas receitas e despesas.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="dashboard-grid">
+
+    <div class="content-card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h3>Receitas x Despesas</h3>
+
+                <p>
+                    Comparativo financeiro.
+                </p>
+
+            </div>
+
+        </div>
+
+        <canvas id="reportFinanceChart"></canvas>
+
+    </div>
+
+
+    <div class="content-card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h3>Despesas por categoria</h3>
+
+                <p>
+                    Distribuição das despesas.
+                </p>
+
+            </div>
+
+        </div>
+
+        <canvas id="reportCategoryChart"></canvas>
+
+    </div>
+
+</div>
+
+
+<div class="content-card mt-4">
+
+    <div class="card-header">
+
+        <div>
+
+            <h3>Exportar relatório</h3>
+
+            <p>
+                Exporte suas informações financeiras.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="report-actions">
+
+        <button class="btn btn-primary">
+
+            <i class="fa-solid fa-file-pdf"></i>
+
+            Exportar PDF
+
+        </button>
+
+        <button class="btn btn-success">
+
+            <i class="fa-solid fa-file-excel"></i>
+
+            Exportar Excel
+
+        </button>
+
+    </div>
+
+</div>

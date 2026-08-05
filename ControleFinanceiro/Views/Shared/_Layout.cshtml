@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Controle Financeiro</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <i class="fa-solid fa-wallet"></i>
+
+            Controle Financeiro
+
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a asp-controller="Home"
+               asp-action="Index">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Dashboard
+
+            </a>
+
+            <a asp-controller="Transacoes"
+               asp-action="Index">
+
+                <i class="fa-solid fa-receipt"></i>
+
+                Transações
+
+            </a>
+
+            <a asp-controller="Categorias"
+               asp-action="Index">
+
+                <i class="fa-solid fa-tags"></i>
+
+                Categorias
+
+            </a>
+
+                <a asp-controller="Relatorios"
+                   asp-action="Index">
+
+                <i class="fa-solid fa-chart-pie"></i>
+
+                Relatórios
+
+            </a>
+
+                <a asp-controller="Configuracoes"
+                   asp-action="Index">
+
+                <i class="fa-solid fa-gear"></i>
+
+                Configurações
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    
+
+    <main class="main-content">
+
+        <div class="topbar">
+
+            <div>
+
+                <h2>Bem-vindo 👋</h2>
+
+                <p>
+
+                    @DateTime.Now.ToString("dddd, dd 'de' MMMM")
+
+                </p>
+
+            </div>
+
+                <div class="topbar-actions">
+
+                    <button id="themeButton"
+                            class="btn btn-outline-secondary">
+
+                        <i class="fa-solid fa-moon"></i>
+
+                    </button>
+
+                    <a asp-controller="Transacoes"
+                       asp-action="Create"
+                       class="btn btn-primary">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Nova Transação
+
+                    </a>
+
+                </div>
+
+        </div>
+
+        @RenderBody()
+
+    </main>
+
+</div>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+
+        <div id="liveToast"
+             class="toast">
+
+            <div class="toast-header">
+
+                <strong class="me-auto">
+
+                    Controle Financeiro
+
+                </strong>
+
+                <button class="btn-close"
+                        data-bs-dismiss="toast">
+                </button>
+
+            </div>
+
+            <div class="toast-body">
+
+                @TempData["Mensagem"]
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+            const toast = document.getElementById("liveToast");
+
+            if (toast) {
+
+                const bsToast = new bootstrap.Toast(toast);
+
+                @if (TempData["Mensagem"] != null)
+                {
+
+                    <text>
+
+                            bsToast.show();
+
+                    </text>
+
+                }
+
+            }
+
+    </script>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="~/js/site.js"></script>
+
+    <script src="~/js/theme.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>

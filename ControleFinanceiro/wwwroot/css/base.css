@@ -1,0 +1,107 @@
+﻿:root {
+    --primary: #2563eb;
+    --success: #16a34a;
+    --danger: #dc2626;
+    --sidebar: #0f172a;
+    --sidebar-hover: #1e293b;
+    --background: #f4f7fb;
+    --card: #ffffff;
+    --text: #1e293b;
+    --text-secondary: #64748b;
+    --border: #e5e7eb;
+    --shadow: 0 10px 25px rgba(0,0,0,.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+}
+
+.dark-mode {
+    --background: #111827;
+    --card: #1f2937;
+    --text: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --border: #374151;
+    --sidebar: #020617;
+    --sidebar-hover: #1e293b;
+    --shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text);
+}
+
+p {
+    color: var(--text-secondary);
+}
+
+span {
+    color: inherit;
+}
+
+label {
+    color: var(--text);
+}
+
+strong {
+    color: inherit;
+}
+
+.dark-mode .table {
+    --bs-table-bg: var(--card);
+    --bs-table-color: var(--text);
+    color: var(--text);
+    background-color: var(--card);
+}
+
+    .dark-mode .table > :not(caption) > * > * {
+        background-color: var(--card);
+        color: var(--text);
+        border-bottom-color: var(--border);
+    }
+
+    .dark-mode .table thead th {
+        color: var(--text);
+        background-color: #273449;
+        border-color: var(--border);
+    }
+
+    .dark-mode .table tbody td {
+        color: var(--text);
+        background-color: var(--card);
+        border-color: var(--border);
+    }
+
+    .dark-mode .table tbody tr:hover td {
+        background-color: #273449;
+    }
+
+.dark-mode .form-control,
+.dark-mode .form-select {
+    background-color: #273449;
+    color: var(--text);
+    border-color: var(--border);
+}
+
+    .dark-mode .form-control::placeholder {
+        color: #94a3b8;
+    }
+
+    .dark-mode .form-control:focus,
+    .dark-mode .form-select:focus {
+        background-color: #273449;
+        color: var(--text);
+        border-color: var(--primary);
+        box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, .25);
+    }

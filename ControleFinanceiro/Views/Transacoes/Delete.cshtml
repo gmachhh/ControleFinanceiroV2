@@ -1,0 +1,114 @@
+﻿@model ControleFinanceiro.Models.Transacao
+
+@{
+    ViewData["Title"] = "Excluir Transação";
+}
+
+<div class="page-header">
+
+    <div>
+
+        <h1>Excluir transação</h1>
+
+        <p>
+            Confirme a exclusão da transação.
+        </p>
+
+    </div>
+
+</div>
+
+<div class="form-card delete-card">
+
+    <div class="delete-icon">
+
+        <i class="fa-solid fa-triangle-exclamation"></i>
+
+    </div>
+
+    <h3>
+        Tem certeza que deseja excluir?
+    </h3>
+
+    <p class="text-muted">
+        Essa ação não poderá ser desfeita.
+    </p>
+
+
+    <div class="delete-info">
+
+        <div>
+
+            <span>Descrição</span>
+
+            <strong>
+                @Model.Descricao
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>Categoria</span>
+
+            <strong>
+                @(Model.Categoria?.Nome ?? "Sem categoria")
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>Data</span>
+
+            <strong>
+                @Model.Data.ToString("dd/MM/yyyy")
+            </strong>
+
+        </div>
+
+
+        <div>
+
+            <span>Valor</span>
+
+            <strong>
+                @Model.Valor.ToString("C")
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <form asp-action="Delete"
+          method="post">
+
+        <input type="hidden"
+               asp-for="Id" />
+
+        <div class="form-actions">
+
+            <a asp-action="Index"
+               class="btn btn-secondary">
+
+                Cancelar
+
+            </a>
+
+            <button type="submit"
+                    class="btn btn-danger">
+
+                <i class="fa-solid fa-trash"></i>
+
+                Excluir transação
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>

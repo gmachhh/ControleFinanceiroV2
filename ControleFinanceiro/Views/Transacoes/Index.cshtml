@@ -1,0 +1,239 @@
+﻿@model ControleFinanceiro.ViewModels.TransacaoFiltroViewModel
+
+@{
+    ViewData["Title"] = "Transações";
+}
+
+<div class="page-header">
+
+    <div>
+        <h1>Transações</h1>
+
+        <p>
+            Gerencie suas receitas e despesas.
+        </p>
+    </div>
+
+    <!--<a asp-action="Create"
+       class="btn btn-primary">
+
+        <i class="fa-solid fa-plus"></i>
+
+        Nova transação
+
+    </a>-->
+
+</div>
+
+<form method="get" class="row g-3 mb-4">
+
+    <div class="col-md-4">
+
+        <input name="pesquisa"
+               value="@Model.Pesquisa"
+               class="form-control"
+               placeholder="Pesquisar..." />
+
+    </div>
+
+    <div class="col-md-2">
+
+        <select name="tipo"
+                class="form-select">
+
+            <option value="">Todos</option>
+
+            <option value="Receita">
+                Receita
+            </option>
+
+            <option value="Despesa">
+                Despesa
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <select name="categoriaId"
+                asp-items="Model.Categorias"
+                class="form-select">
+
+            <option value="">
+                Todas categorias
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <button class="btn btn-primary w-100">
+
+            Filtrar
+
+        </button>
+
+    </div>
+
+</form>
+
+
+@if (TempData["Sucesso"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Sucesso"]
+    </div>
+}
+
+<div class="content-card transactions-container">
+
+    @if (Model.Transacoes.Any())
+    {
+        <div class="table-responsive">
+
+            <div class="row mb-4">
+
+                <div class="col-md-6">
+
+                    
+
+                </div>
+
+            </div>
+
+            <table class="table" id="transactionsTable">
+
+                <thead>
+
+                    <tr class="transaction-row">
+
+                        <th>Descrição</th>
+
+                        <th>Categoria</th>
+
+                        <th>Tipo</th>
+
+                        <th>Data</th>
+
+                        <th>Valor</th>
+
+                        <th>Ações</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var transacao in Model.Transacoes)
+                    {
+                        <tr>
+
+                            <td>
+                                @transacao.Descricao
+                            </td>
+
+                            <td>
+                                @transacao.Categoria?.Nome
+                            </td>
+
+                            <td>
+
+                                @if (transacao.Tipo == TipoTransacao.Receita)
+                                {
+                                    <span class="badge bg-success">
+                                        Receita
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger">
+                                        Despesa
+                                    </span>
+                                }
+
+                            </td>
+
+                            <td>
+                                @transacao.Data.ToString("dd/MM/yyyy")
+                            </td>
+
+                            <td>
+
+                                @if (transacao.Tipo == TipoTransacao.Receita)
+                                {
+                                    <span class="text-success fw-bold">
+                                        + @transacao.Valor.ToString("C")
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="text-danger fw-bold">
+                                        - @transacao.Valor.ToString("C")
+                                    </span>
+                                }
+
+                            </td>
+
+                            <td>
+
+                                <a asp-action="Edit"
+                                   asp-route-id="@transacao.Id"
+                                   class="btn btn-sm btn-outline-primary">
+
+                                    <i class="fa-solid fa-pen"></i>
+
+                                </a>
+
+                                <a asp-action="Delete"
+                                   asp-route-id="@transacao.Id"
+                                   class="btn btn-sm btn-outline-danger">
+
+                                    <i class="fa-solid fa-trash"></i>
+
+                                </a>
+
+                            </td>
+
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+    }
+    else
+    {
+        <div class="empty-state">
+
+            <i class="fa-solid fa-wallet"></i>
+
+            <h4>Nenhuma transação cadastrada</h4>
+
+            <p>
+                Comece cadastrando sua primeira receita ou despesa.
+            </p>
+
+            <a asp-action="Create"
+               class="btn btn-primary">
+
+                Nova transação
+
+            </a>
+
+        </div>
+    }
+
+</div>
+
+@section Scripts{
+
+    <script src="~/js/transacoes.js"></script>
+
+}
